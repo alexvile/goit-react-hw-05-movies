@@ -1,5 +1,5 @@
 import { useState } from 'react';
-export const Searchbar = () => {
+export const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleSubmit = e => {
@@ -7,11 +7,14 @@ export const Searchbar = () => {
     if (query.trim() === '') {
       return alert('You should to write something to search');
     }
-    // onSubmit(query);
-    // formReset();
+    onSubmit(query);
+    formReset();
   };
   const handleChange = e => {
     setQuery(e.currentTarget.value.toLowerCase());
+  };
+  const formReset = () => {
+    setQuery('');
   };
   return (
     <div>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useLocation, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieDetails } from 'services/movies-api';
 import {
@@ -16,12 +16,15 @@ import {
 export const MovieInfo = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
   useEffect(() => {
     getMovieDetails(movieId).then(obj => {
-      console.log(obj);
+      // console.log(obj);
       setMovie(obj);
     });
   }, [movieId]);
+
+  // console.log(location);
 
   if (!movie) {
     return null;
@@ -31,7 +34,7 @@ export const MovieInfo = () => {
   return (
     <div>
       Movie Info
-      <a href="/">Go back</a>
+      <Link to={location.state?.from ?? '/'}>Go back</Link>
       <Card>
         <CardImgWrapper>
           <img
@@ -64,6 +67,16 @@ export const MovieInfo = () => {
           </CardGenres>
         </CardDetails>
       </Card>
+      <ul>
+        Additional info
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 };
