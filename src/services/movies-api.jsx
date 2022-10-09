@@ -1,3 +1,4 @@
+const BASE_URL = 'https://api.themoviedb.org/3';
 // API key v3
 const API_KEY = 'a94710b6dd420fca467f69187c416605';
 // Api key v4
@@ -7,22 +8,22 @@ const API_KEY = 'a94710b6dd420fca467f69187c416605';
 const media_type = 'all'; // all - movie - tv - person
 const time_window = 'day'; // day - week
 
-// export async function fetchMovies() {
-//   const response = await fetch(
-//     `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`
-//   );
-//   console.log(response);
-//   if (response.ok) {
-//     return response.json();
-//   }
-//   return await Promise.reject(new Error('Ups! Something went wrong'));
-// }
-
 export async function fetchTrending() {
   const response = await fetch(
-    `https://api.themoviedb.org/3/trending/${media_type}/${time_window}?api_key=${API_KEY}`
+    `${BASE_URL}/trending/${media_type}/${time_window}?api_key=${API_KEY}`
   );
-  console.log(response);
+  // console.log(response);
+  if (response.ok) {
+    return response.json();
+  }
+  return await Promise.reject(new Error('Ups! Something went wrong'));
+}
+
+export async function getMovieDetails(movieId) {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+  );
+  // console.log(response);
   if (response.ok) {
     return response.json();
   }

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Header, List, Item } from './AppBar.styled';
 const navItems = [
-  { href: '*', text: 'Home' },
+  { href: 'home', text: 'Home' },
   { href: 'movies', text: 'Movies' },
 ];
 
