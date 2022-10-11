@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import { fetchTrending } from 'services/movies-api';
+import { Title, Item } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -18,15 +19,15 @@ export const Home = () => {
 
   return (
     <div>
-      Home page Trending today
+      <Title>Trending today</Title>
       {movies.length > 0 ? (
         <ul>
-          {movies.map(({ id, title, name, media_type }) => (
-            <li key={id}>
+          {movies.map(({ id, title, name }) => (
+            <Item key={id}>
               <NavLink to={`/movies/${id}`} state={{ from: location }}>
-                {media_type} {title} {name}
+                {title} {name}
               </NavLink>
-            </li>
+            </Item>
           ))}
         </ul>
       ) : null}

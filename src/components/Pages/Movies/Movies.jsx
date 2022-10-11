@@ -30,15 +30,14 @@ export const Movies = () => {
 
   return (
     <div>
-      Moviees
       <Searchbar onSubmit={handleFormSubmit} />
       <Outlet />
       {movies.length > 0 ? (
         <ul>
-          {movies.map(({ id, title, name, media_type }) => (
+          {movies.map(({ id, title, name }) => (
             <li key={id}>
               <NavLink to={`${id}`} state={{ from: location }}>
-                {media_type} {title} {name}
+                {title} {name}
               </NavLink>
             </li>
           ))}

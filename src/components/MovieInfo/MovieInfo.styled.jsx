@@ -1,4 +1,8 @@
 import styled from '@emotion/styled';
+
+export const CardWrapper = styled.div`
+  padding: 10px;
+`;
 export const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -46,5 +50,37 @@ export const CardGenresList = styled.ul`
   padding-left: 0;
   li {
     padding-right: 10px;
+  }
+`;
+export const LinkWrapper = styled.div`
+  margin-bottom: 10px;
+  a {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+      border-color 250ms ease-in-out;
+    &:hover {
+      background-color: #e9e9ff;
+      border-color: #e9e9ff;
+      color: #fff;
+    }
+  }
+`;
+export const Info = styled.div`
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `;

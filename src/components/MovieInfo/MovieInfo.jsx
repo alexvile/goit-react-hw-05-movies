@@ -2,6 +2,7 @@ import { useParams, Link, useLocation, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieDetails } from 'services/movies-api';
 import {
+  CardWrapper,
   Card,
   CardImgWrapper,
   CardDetails,
@@ -11,6 +12,8 @@ import {
   CardGenres,
   CardGenresLabel,
   CardGenresList,
+  LinkWrapper,
+  Info,
 } from './MovieInfo.styled';
 
 export const MovieInfo = () => {
@@ -32,9 +35,10 @@ export const MovieInfo = () => {
   const { poster_path, title, release_date, vote_average, overview, genres } =
     movie;
   return (
-    <div>
-      Movie Info
-      <Link to={location.state?.from ?? '/'}>Go back</Link>
+    <CardWrapper>
+      <LinkWrapper>
+        <Link to={location.state?.from ?? '/'}>Go back</Link>
+      </LinkWrapper>
       <Card>
         <CardImgWrapper>
           <img
@@ -67,16 +71,19 @@ export const MovieInfo = () => {
           </CardGenres>
         </CardDetails>
       </Card>
-      <ul>
-        Additional info
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <Info>
+        <h2>Additional info</h2>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </Info>
+
       <Outlet />
-    </div>
+    </CardWrapper>
   );
 };
