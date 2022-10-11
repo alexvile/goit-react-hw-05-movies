@@ -18,7 +18,7 @@ export const Movies = () => {
     }
     getMovieByName(query).then(arr => {
       // console.log(arr);
-      console.log(arr.results);
+      // console.log(arr.results);
       setMovies(arr.results);
     });
   }, [query]);

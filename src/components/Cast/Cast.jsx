@@ -11,13 +11,13 @@ export const Cast = () => {
   useEffect(() => {
     getMovieCast(movieId).then(obj => {
       // console.log(obj);
-      console.log(obj.cast);
+      // console.log(obj.cast);
       setCast(obj.cast);
     });
   }, [movieId]);
 
   if (cast.length === 0) {
-    return null;
+    return <div>There is no information about cast</div>;
   }
 
   const width = '100';

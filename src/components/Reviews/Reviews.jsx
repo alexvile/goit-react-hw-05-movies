@@ -14,8 +14,8 @@ export const Reviews = () => {
 
   useEffect(() => {
     getMovieReviews(movieId).then(obj => {
-      console.log(obj);
-      console.log(obj.results);
+      // console.log(obj);
+      // console.log(obj.results);
       setReviews(obj.results);
     });
   }, [movieId]);

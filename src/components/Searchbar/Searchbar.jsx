@@ -26,6 +26,7 @@ export const Searchbar = ({ onSubmit }) => {
           id="search_movie"
           value={query}
           onChange={handleChange}
+          placeholder="Enter movie's name ..."
         />
         <Button type="submit">Search</Button>
       </Form>

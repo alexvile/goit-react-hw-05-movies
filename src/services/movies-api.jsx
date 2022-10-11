@@ -34,7 +34,7 @@ export async function getMovieByName(query) {
   const response = await fetch(
     `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=true&query=${query}`
   );
-  console.log(response);
+  // console.log(response);
   if (response.ok) {
     return response.json();
   }
