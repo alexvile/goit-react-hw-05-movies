@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { fetchTrending } from 'services/movies-api';
 import { Title, Item } from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
   // console.log(location);
@@ -34,3 +34,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

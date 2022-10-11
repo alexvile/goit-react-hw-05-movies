@@ -5,7 +5,7 @@ import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { getMovieByName } from 'services/movies-api';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -46,3 +46,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;

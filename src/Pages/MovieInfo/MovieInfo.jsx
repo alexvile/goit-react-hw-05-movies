@@ -16,7 +16,7 @@ import {
   Info,
 } from './MovieInfo.styled';
 
-export const MovieInfo = () => {
+const MovieInfo = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -87,3 +87,5 @@ export const MovieInfo = () => {
     </CardWrapper>
   );
 };
+
+export default MovieInfo;
