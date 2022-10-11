@@ -20,6 +20,8 @@ const MovieInfo = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  let backLocation = location.state?.from ?? '/';
+
   useEffect(() => {
     getMovieDetails(movieId).then(obj => {
       // console.log(obj);
@@ -27,7 +29,7 @@ const MovieInfo = () => {
     });
   }, [movieId]);
 
-  // console.log(location);
+  console.log(location);
 
   if (!movie) {
     return null;
@@ -37,7 +39,7 @@ const MovieInfo = () => {
   return (
     <CardWrapper>
       <LinkWrapper>
-        <Link to={location.state?.from ?? '/'}>Go back</Link>
+        <Link to={backLocation}>Go back</Link>
       </LinkWrapper>
       <Card>
         <CardImgWrapper>
@@ -75,10 +77,14 @@ const MovieInfo = () => {
         <h2>Additional info</h2>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: backLocation }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: backLocation }}>
+              Reviews
+            </Link>
           </li>
         </ul>
       </Info>

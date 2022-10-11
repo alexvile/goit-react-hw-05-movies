@@ -21,10 +21,10 @@ export const Item = styled.li`
   }
   a.active {
     color: red;
-    text-decoration: underline;
   }
   a:hover:not(.active),
   a:focus-visible:not(.active) {
     opacity: 0.8;
+    text-decoration: underline;
   }
 `;
