@@ -29,7 +29,7 @@ const MovieInfo = () => {
     });
   }, [movieId]);
 
-  console.log(location);
+  // console.log(location);
 
   if (!movie) {
     return null;
