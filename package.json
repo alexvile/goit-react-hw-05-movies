@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://alexvile.github.io/goit-react-hw-05-movies/",
   "dependencies": {
+    "react-loader-spinner": "^5.3.4",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@testing-library/jest-dom": "^5.16.3",
