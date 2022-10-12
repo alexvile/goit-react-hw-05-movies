@@ -2,8 +2,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Form, Label, Input, Button } from './Searchbar.styled';
-export const Searchbar = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
+export const Searchbar = ({ value, onSubmit }) => {
+  const [query, setQuery] = useState(value);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -11,14 +11,14 @@ export const Searchbar = ({ onSubmit }) => {
       return alert('You should to write something to search');
     }
     onSubmit(query);
-    formReset();
+    // formReset();
   };
   const handleChange = e => {
     setQuery(e.currentTarget.value.toLowerCase());
   };
-  const formReset = () => {
-    setQuery('');
-  };
+  // const formReset = () => {
+  //   setQuery('');
+  // };
   return (
     <div>
       <Form onSubmit={handleSubmit}>

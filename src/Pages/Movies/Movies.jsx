@@ -30,7 +30,7 @@ const Movies = () => {
 
   return (
     <div>
-      <Searchbar onSubmit={handleFormSubmit} />
+      <Searchbar value={query} onSubmit={handleFormSubmit} />
       <Outlet />
       {movies.length > 0 ? (
         <ul>
